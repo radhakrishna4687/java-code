@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+      runtime-version:
+        java: openjdk11
+      commands:
+        - apt-get update -y
+        - apt-get install -y maven
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build pahses....
+  build:
+    commands:
+      - echo Build start on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed `date`
+artifacts:
+  # type: zip
+   files: 
+      - 'target/ccdemo.war'
+   #  - |
+      # target/*.zip      
